@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MigrantCare</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <meta name="google" content="notranslate">
+  <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en', 
+              includedLanguages: 'en,ta,hi', 
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"></div>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="/home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary" style="color: rgb(34, 97, 190);">MigrantCare</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="/home" class="nav-item nav-link">Home</a>
+                    <a href="/map" class="nav-item nav-link">Map</a>
+                    <a href="/about" class="nav-item nav-link">About</a>
+                </div>
+                <img src="#" id="user-pic" alt="profile" onclick="toggleDropdown()">
+                <div class="dropdown" id="dropdownMenu">
+                    <div class="menu">
+                        <div class="info">
+                            <img src="#" id="img" alt="user">
+                            <h2 id="user">User</h2>
+                        </div>
+                        <hr>
+                        <a href="/employeeprofile" class="link">
+                            <img src="img/profile.png" alt="profile">
+                            <p>Profile</p>
+                        </a>
+                        <button class="theme link" id="dark-mode-toggle" style="background-color:transparent; border: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M504-425Zm20 385H420l20-12.5q20-12.5 43.5-28t43.5-28l20-12.5q81-6 149.5-49T805-285q-86-8-163-43.5T504-425q-61-61-97-138t-43-163q-77 43-120.5 118.5T200-444v12l-12 5.5q-12 5.5-26.5 11.5T135-403.5l-12 5.5q-2-11-2.5-23t-.5-23q0-146 93-257.5T450-840q-18 99 11 193.5T561-481q71 71 165.5 100T920-370q-26 144-138 237T524-40Zm-284-80h180q25 0 42.5-17.5T480-180q0-25-17-42.5T422-240h-52l-20-48q-14-33-44-52.5T240-360q-50 0-85 34.5T120-240q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T40-240q0-83 58.5-141.5T240-440q60 0 109.5 32.5T423-320q57 2 97 42.5t40 97.5q0 58-41 99t-99 41H240Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffff00"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+                            <p id="dark-mode-label">Dark Mode</p>
+                        </button>
+                        <a onclick="logout()" class="link">
+                            <img src="img/logout.png" alt="logout">
+                            <p>Logout</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-bg-1.jpg);">
+        <div class="container-fluid page-header-inner py-5" style="padding-bottom: 20px;">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Employee Profile</h1>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="profile-container" >
+                        <div class="profile-header">
+                            <img id="profile-image" src="img/carousel-bg-2.jpg" alt="Profile Photo">
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" id="firstname" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" id="lastname" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Father's Name</label>
+                                    <input type="text" class="form-control" id="father-name" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Mother's Name</label>
+                                    <input type="text" class="form-control" id="mother-name" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Unique ID</label>
+                                <input type="text" class="form-control" id="unique-id" disabled>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Gender</label>
+                                <input type="text" class="form-control" id="gender" disabled>
+                            </div> 
+                            </div>   
+                            <div class="row">                            
+                            <div class="col-md-6 form-group">
+                                <label>Email ID</label>
+                                <input type="email" class="form-control" id="email-id" disabled>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Phone Number</label>
+                                    <input type="text" class="form-control" id="phone-number" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Emergency Contact</label>
+                                    <input type="text" class="form-control" id="emergency-contact" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Aadhar Number</label>
+                                    <input type="text" class="form-control" id="aadhar-number" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>PAN ID</label>
+                                    <input type="text" class="form-control" id="pan-id" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" class="form-control" id="date-of-birth" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Marital Status</label>
+                                    <input type="text" class="form-control" id="marital-status" disabled>
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <label>Current Address</label>
+                                <input type="text" class="form-control" id="current-address" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Current District</label>
+                                <input type="text" class="form-control" id="current-district" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Native Address</label>
+                                <input type="text" class="form-control" id="native-address" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Native District</label>
+                                <input type="text" class="form-control" id="native-district" disabled>
+                            </div>
+                            <h2 style="margin-top: 20px;">Bank Details</h2>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Account Number</label>
+                                    <input type="text" class="form-control" id="account-number" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>IFSC Code</label>
+                                    <input type="text" class="form-control" id="ifsc-code" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Bank Name</label>
+                                    <input type="text" class="form-control" id="bank-name" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Branch</label>
+                                    <input type="text" class="form-control" id="branch" disabled>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            
+                    <script>
+                        function previewImage(event) {
+                            const reader = new FileReader();
+                            reader.onload = function() {
+                                const output = document.getElementById('profile-image');
+                                output.src = reader.result;
+                                output.style.display = 'inline-block';
+                                output.style.borderRadius = '50%';
+                            }
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+                    </script>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6" style="text-align: center;">
+                    <p class="mb-2">&copy; 2025 Migrant Care. All rights reserved.</p>
+                    <p class="mb.2"><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js" defer></script>
+    <script src="js/employeeprofile.js" defer></script>
+    <script>
+        function toggleDropdown() {
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

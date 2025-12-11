@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="google" content="notranslate">
+  <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en', 
+              includedLanguages: 'en,ta,hi,bn,or,te', 
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    .flatpickr-calendar {
+    background-color: #E3FDFD;
+    color: #fff;
+    border-radius: 10px;
+    }
+  
+    .flatpickr-day {
+      color: black;
+    }
+  
+    .flatpickr-monthDropdown-months{
+      text-align: center;
+    }
+    .flatpickr-current-month input.cur-year{
+      padding-right: 1.5ch ;
+    }
+    .flatpickr-day:hover {
+      background-color: #1db954;
+      color: black;
+      border: none;
+    }
+  
+    .flatpickr-day:active{
+      color: #1db954;
+      background: black;
+      border: none;
+    }
+  
+    .flatpickr-day.selected{
+      color: #1db954;
+      background: black;
+      border: none;
+    }
+  
+    .flatpickr-weekday{
+      color: #71C9CE !important;
+    }
+    </style>
+</head>
+<body>
+  <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"></div>
+  <div class="header">
+    <h1 onclick="location.href='/login'">Migrant Care</h1>
+    <hr>
+  </div>
+  <div class="wrapper">
+<form id="adminRegister" method="POST" action="/adminregister">
+      <h1>Admin Register</h1>
+      <div class="form-grid">
+        <div class="input-box">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="firstName" placeholder="First Name" required>
+        </div>
+        <div class="input-box">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="lastName" placeholder="Last Name" required>
+        </div>
+        <div class="input-box">
+          <label for="fathers-name">Father's Name</label>
+          <input type="text" id="fathers-name" name="fathersName" placeholder="Father's Name" required>
+        </div>
+        <div class="input-box">
+          <label for="mothers-name">Mother's Name</label>
+          <input type="text" id="mothers-name" name="mothersName" placeholder="Mother's Name" required>
+        </div>
+        <div class="input-box">
+          <label for="user-type">Gender</label>
+          <select name="gender" required>
+            <option value="" disabled selected>Select User Gender</option>
+            <option value="male">Male</option>
+            <option value="Female">Female</option>
+            <option value="PND">Prefer not to Disclose</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-box">
+          <label for="phone">Phone No</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+        </div>
+        <div class="input-box">
+          <label for="Emerphone">Emergence Contact</label>
+          <input type="tel" id="Emerphone" name="Emerphone" placeholder="Emergence Contact" required>
+        </div>
+        <div class="input-box">
+          <label for="aadhaar-number">Aadhaar Number</label>
+          <input type="tel" id="aadhaar-number" name="aadhaarNumber" placeholder="Aadhaar Number" required>
+          <span class="error-message" id="aadhaar-error"></span>
+        </div>
+        <div class="input-box">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" placeholder="DD-MM-YYYY" required>
+          <span class="error-message" id="dob-error"></span>
+        </div>
+        <div class="input-box">
+          <label for="photo">Passport Photo</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <div class="input-box">
+          <label for="Current-Address">Current Address</label>
+          <input type="text" id="Current-Address" name="CurrentAddress" placeholder="Current Address" required>
+        </div>
+        <div class="input-box">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <span class="error-message" id="password-error"></span>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
+          <span class="error-message" id="confirm-password-error"></span>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+      </div>
+      <div class="input-box" id="admin-code-field">
+        <label for="admin-code">Admin Code</label>
+        <input type="password" id="admin-code" name="adminCode" placeholder="Admin Code" required>
+      </div>
+      <div class="input-box" id="OTP-field" style="padding-top: 10px;padding-bottom: 10px;">
+        <label for="OTP">OTP</label>
+        <input type="text" id="OTP" name="OTP" placeholder="OTP" required>
+        <span id="send-otp-button">Send OTP</span>
+        <span id="verify-otp-button">Verify OTP</span>
+      </div>
+    <button type="submit" class="btn">Register</button>
+      <div class="register-link">
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+  <footer class="footer">
+      <p>&copy; 2025 Migrant Care. All rights reserved.</p>
+      <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+  <script src="adminregister.js"></script>
+  <script>
+// Validation functions
+function validatePassword(password) {
+    if (password.length < 8) {
+        return "Password must be at least 8 characters long.";
+    }
+    return null;
+}
+
+function validateConfirmPassword(password, confirmPassword) {
+    if (password !== confirmPassword) {
+        return "Passwords do not match.";
+    }
+    return null;
+}
+
+function validateAadhaarNumber(aadhaarNumber) {
+    if (aadhaarNumber.length !== 12 || !/^\d+$/.test(aadhaarNumber)) {
+        return "Aadhaar number must be 12 digits long and contain only numbers.";
+    }
+    return null;
+}
+
+// Real-time validation for Aadhaar number (on blur)
+document.getElementById('aadhaar-number').addEventListener('blur', function () {
+    const aadhaarError = validateAadhaarNumber(this.value);
+    document.getElementById('aadhaar-error').textContent = aadhaarError || '';
+});
+
+// Real-time validation for password (on blur)
+document.getElementById('password').addEventListener('blur', function () {
+    const passwordError = validatePassword(this.value);
+    document.getElementById('password-error').textContent = passwordError || '';
+});
+
+// Real-time validation for confirm password (on blur and input)
+document.getElementById('confirm-password').addEventListener('blur', validateConfirmPasswordHandler);
+
+function validateConfirmPasswordHandler() {
+    const password = document.getElementById('password').value;
+    const confirmPassword = this.value;
+    const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
+        document.getElementById('confirm-password-error').textContent = confirmPasswordError || '';
+        }
+
+document.getElementById('adminRegister').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Clear previous error messages
+    document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
+
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const aadhaarNumber = document.getElementById('aadhaar-number').value;
+    const dob = document.getElementById('dob').value;
+
+    // Inline validation logic
+    function validatePassword(password) {
+        if (password.length < 8) {
+            return "Password must be at least 8 characters long.";
+        }
+        return null;
+    }
+
+    function validateConfirmPassword(password, confirmPassword) {
+        if (password !== confirmPassword) {
+            return "Passwords do not match.";
+        }
+        return null;
+    }
+
+    function validateAadhaarNumber(aadhaarNumber) {
+        if (aadhaarNumber.length !== 12) {
+            return "Aadhaar number must be 12 digits long.";
+        }
+        return null;
+    }
+
+    function validateDOB(dob) {
+        const dobDate = new Date(dob);
+        if (dobDate > new Date()) {
+            return "Date of birth cannot be in the future.";
+        }
+        return null;
+    }
+
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+        document.getElementById('password-error').textContent = passwordError;
+        return;
+    }
+
+    const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
+    if (confirmPasswordError) {
+        document.getElementById('confirm-password-error').textContent = confirmPasswordError;
+        return;
+    }
+
+    const aadhaarError = validateAadhaarNumber(aadhaarNumber);
+    if (aadhaarError) {
+        document.getElementById('aadhaar-error').textContent = aadhaarError;
+        return;
+    }
+
+    const dobError = validateDOB(dob);
+    if (dobError) {
+        document.getElementById('dob-error').textContent = dobError;
+        return;
+    }
+
+    const formData = new FormData(this); // Collect form data
+    try {
+        const response = await fetch('/adminregister', {
+            method: 'POST',
+            body: formData, // Send the FormData directly
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            this.reset();
+            if (result.redirect) {
+                setTimeout(() => {
+                    window.location.href = "/login";
+                }, 2000);
+            }
+        } else {
+            alert(result.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while registering the admin.');
+    }
+});
+
+document.getElementById('send-otp-button').addEventListener('click', async function () {
+    const emailField = document.getElementById('email');
+    const email = emailField.value;
+
+    if (!email) {
+        alert('Please enter an email address.');
+        return;
+    }
+
+    try {
+        const response = await fetch('/sendOtp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            this.style.display = 'none'; // Hide "Send OTP" button
+            document.getElementById('verify-otp-button').style.display = 'inline'; // Show "Verify OTP" button
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        console.error('Error sending OTP:', error);
+        alert('An error occurred while sending the OTP.');
+    }
+});
+
+document.getElementById('verify-otp-button').addEventListener('click', async function () {
+  if (this.disabled) return;
+    const email = document.getElementById('email').value;
+    const otp = document.getElementById('OTP').value;
+
+    if (!otp) {
+        alert('Please enter the OTP.');
+        return;
+    }
+
+    try {
+        const response = await fetch('/verifyOtp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, otp })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            this.textContent = 'Verified'; // Change button text to "Verified"
+            this.disabled = true; // Disable the button
+            document.getElementById('OTP').disabled = true; // Disable OTP field
+            document.getElementById('email').disabled = true; // Disable email field
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        console.error('Error verifying OTP:', error);
+        alert('An error occurred while verifying the OTP.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    flatpickr("#dob", {
+        dateFormat: "d-m-Y",
+        maxDate: "today"
+    });
+});
+</script>
+</body>
+</html>

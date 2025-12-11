@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <meta name="google" content="notranslate">
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', 
+                includedLanguages: 'en,ta,hi', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/pages.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"></div>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="/home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">MigrantCare</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/home" class="nav-item nav-link">Home</a>
+                <a href="/map" class="nav-item nav-link">Map</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+            </div>
+            <img src="#" id="user-pic" alt="profile" onclick="toggleDropdown()">
+            <div class="dropdown" id="dropdownMenu">
+                <div class="menu">
+                    <div class="info">
+                        <img src="#" id="img" alt="user">
+                        <h2 id="user">User</h2>
+                    </div>
+                    <hr>
+                    <a href="/adminprofile" class="link">
+                        <img src="img/profile.png" alt="profile">
+                        <p>Profile</p>
+                    </a>
+                    <a href="/admindashboard" class="link">
+                        <img src="img/dashboard.png" height="28px" alt="Dashboard">
+                        <p>Dashboard</p>
+                    </a>
+                    <button class="theme link" id="dark-mode-toggle" style="background-color:transparent; border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M504-425Zm20 385H420l20-12.5q20-12.5 43.5-28t43.5-28l20-12.5q81-6 149.5-49T805-285q-86-8-163-43.5T504-425q-61-61-97-138t-43-163q-77 43-120.5 118.5T200-444v12l-12 5.5q-12 5.5-26.5 11.5T135-403.5l-12 5.5q-2-11-2.5-23t-.5-23q0-146 93-257.5T450-840q-18 99 11 193.5T561-481q71 71 165.5 100T920-370q-26 144-138 237T524-40Zm-284-80h180q25 0 42.5-17.5T480-180q0-25-17-42.5T422-240h-52l-20-48q-14-33-44-52.5T240-360q-50 0-85 34.5T120-240q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T40-240q0-83 58.5-141.5T240-440q60 0 109.5 32.5T423-320q57 2 97 42.5t40 97.5q0 58-41 99t-99 41H240Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffff00"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+                        <p id="dark-mode-label">Dark Mode</p>
+                    </button>
+                    <a onclick="logout()" class="link">
+                        <img src="img/logout.png" alt="logout">
+                        <p>Logout</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0 full-height" style="background-image: url(img/carousel-bg-1.jpg);background-size: contain;border-bottom: 1px solid gray;">
+        <div class="container-fluid page-header-inner py-6 full-height">
+            <div class="container text-center full-height">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Admin Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Dashboard Content Start -->
+    <div class="container full-height">
+        <div class="row full-height">
+            <div class="col-md-6 full-height">
+                <div class="box full-height">
+                    <h2>Total Employers Registered</h2>
+                    <p id="totalEmployers">0</p>
+                </div>
+            </div>
+            <div class="col-md-6 full-height">
+                <div class="box full-height">
+                    <h2>Total Employees Registered</h2>
+                    <p id="totalEmployees">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 hi full-height">
+            <h2 style="text-align: center;">Registered Employers</h2>
+            <div class="col-md-12 emp full-height">
+                <table class="data-table full-height">
+                    <thead>
+                        <tr>
+                            <th>Sl.No.</th>
+                            <th>Employer Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Company</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employerData">
+                        <!-- Data will be inserted here dynamically -->
+                    </tbody>
+                </table>
+                <div class="text-center full-height">
+                    <button class="saveBtn" onclick="saveEmployer()">
+                        <img src="img/download.png" alt="Save" height="30px" width="25px">
+                        <img src="img/download-after.png" alt="Save" height="30px" width="25px">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 hi full-height">
+            <h2 style="text-align: center;">Registered Employees</h2>
+            <div class="col-md-12 full-height">
+                <table class="data-table full-height">
+                    <thead>
+                        <tr>
+                            <th>Sl.No.</th>
+                            <th>Employee Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Unique No</th>
+                            <th>Aadhaar No</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeData">
+                        <!-- Data will be inserted here dynamically -->
+                    </tbody>
+                </table>
+                <div class="text-center full-height">
+                    <button class="saveBtn" onclick="saveEmployee()">
+                        <img src="img/download.png" alt="Save" height="30px" width="25px">
+                        <img src="img/download-after.png" alt="Save" height="30px" width="25px">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard Content End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6" style="text-align: center;">
+                    <p class="mb-2">&copy; 2025 Migrant Care. All rights reserved.</p>
+                    <p class="mb.2"><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+    <script>
+        function toggleDropdown() {
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        }
+
+        // Fetch and display total employers and employees
+        async function fetchTotals() {
+            try {
+                const response = await fetch('/getTotals');
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('totalEmployers').innerText = data.totalEmployers;
+                    document.getElementById('totalEmployees').innerText = data.totalEmployees;
+                } else {
+                    console.error('Error fetching totals:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching totals:', error);
+            }
+        }
+
+        // Fetch and display registered employers
+        async function fetchEmployers() {
+            try {
+                const response = await fetch('/getEmployers');
+                const data = await response.json();
+                if (response.ok) {
+                    const tableBody = document.getElementById('employerData');
+                    data.forEach((employer, index) => {
+                        const newRow = document.createElement('tr');
+                        newRow.innerHTML = `
+                            <td data-label="Sl.No.">${index + 1}</td>
+                            <td data-label="Employer Name">${employer.firstName+' '+employer.lastName}</td>
+                            <td data-label="Email">${employer.email}</td>
+                            <td data-label="Phone">${employer.phone}</td>
+                            <td data-label="Company">${employer.companyName}</td>
+                            <td data-label="Actions">
+                                <img src="img/edit.png" onclick="editEmployer(this)" alt="edit" style="width: 40px; height: 40px; margin-left:10px">
+                                <img src="img/remove.png" onclick="deleteEmployer(this)" alt="Remove" style="width: 40px; height: 40px; margin-left:10px">
+                            </td>
+                        `;
+                        tableBody.appendChild(newRow);
+                    });
+                } else {
+                    console.error('Error fetching employers:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching employers:', error);
+            }
+        }
+
+        // Fetch and display registered employees
+        async function fetchEmployees() {
+            try {
+                const response = await fetch('/getEmployees');
+                const data = await response.json();
+                if (response.ok) {
+                    const tableBody = document.getElementById('employeeData');
+                    data.forEach((employee, index) => {
+                        const newRow = document.createElement('tr');
+                        newRow.innerHTML = `
+                            <td data-label="Sl.No.">${index + 1}</td>
+                            <td data-label="Employee Name">${employee.firstName+' '+employee.lastName}</td>
+                            <td data-label="Email">${employee.email}</td>
+                            <td data-label="Phone">${employee.phone}</td>
+                            <td data-label="Unique No">${employee.uniqueNumber}</td>
+                            <td data-label="Aadhaar No">${employee.aadhaarNumber}</td>
+                            <td data-label="Actions">
+                                <img src="img/edit.png" onclick="editUser(this)" alt="edit" style="width: 40px; height: 40px; margin-left:10px">
+                                <img src="img/remove.png" onclick="deleteEmployee(this)" alt="Remove" style="width: 40px; height: 40px; margin-left:10px">
+                            </td>
+                        `;
+                        tableBody.appendChild(newRow);
+                    });
+                } else {
+                    console.error('Error fetching employees:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching employees:', error);
+            }
+        }
+
+        // Function to edit user details
+        function editUser(button) {
+            const row = button.parentElement.parentElement;
+            const cells = row.children;
+            for (let i = 1; i < cells.length - 1; i++) {
+                if (i !== 4) { 
+                    const cell = cells[i];
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = cell.innerText;
+                    cell.innerText = '';
+                    cell.appendChild(input);
+                }
+            }
+        }
+
+        // Function to edit employer details
+        function editEmployer(button) {
+            const row = button.parentElement.parentElement;
+            const cells = row.children;
+            for (let i = 1; i < cells.length - 1; i++) {
+                if (i !== 2) { // Skip the email column
+                    const cell = cells[i];
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = cell.innerText;
+                    cell.innerText = '';
+                    cell.appendChild(input);
+                }
+            }
+        }
+
+        // Function to save employer data
+        async function saveEmployer() {
+            const rows = document.querySelectorAll('#employerData tr');
+            for (const row of rows) {
+                const cells = row.children;
+                const firstNameInput = cells[1].querySelector('input');
+                const phoneInput = cells[3].querySelector('input');
+                const companyNameInput = cells[4].querySelector('input');
+                const email = cells[2].innerText;
+
+                if (firstNameInput && phoneInput && companyNameInput) {
+                    const employer = {
+                        firstName: firstNameInput.value.split(' ')[0],
+                        lastName: firstNameInput.value.split(' ')[1],
+                        email: email,
+                        phone: phoneInput.value,
+                        companyName: companyNameInput.value
+                    };
+
+                    try {
+                        const response = await fetch('/updateEmployer', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(employer)
+                        });
+                        if (response.ok) {
+                            cells[1].innerText = employer.firstName + ' ' + employer.lastName;
+                            cells[3].innerText = employer.phone;
+                            cells[4].innerText = employer.companyName;
+                            alert('Employer details updated successfully');
+                        } else {
+                            alert('Error updating employer details');
+                        }
+                    } catch (error) {
+                        console.error('Error updating employer details:', error);
+                    }
+                }
+            }
+        }
+
+        // Function to save employee data
+        async function saveEmployee() {
+            const rows = document.querySelectorAll('#employeeData tr');
+            for (const row of rows) {
+                const cells = row.children;
+                const firstNameInput = cells[1].querySelector('input');
+                const emailInput = cells[2].querySelector('input');
+                const phoneInput = cells[3].querySelector('input');
+                const aadhaarNoInput = cells[5].querySelector('input');
+                const uniqueNo = cells[4].innerText; // Use the unique number from the table cell
+
+                if (firstNameInput && emailInput && phoneInput && aadhaarNoInput) {
+                    const employee = {
+                        firstName: firstNameInput.value.split(' ')[0],
+                        lastName: firstNameInput.value.split(' ')[1],
+                        email: emailInput.value,
+                        phone: phoneInput.value,
+                        uniqueNo: uniqueNo,
+                        aadhaarNo: aadhaarNoInput.value
+                    };
+
+                    try {
+                        const response = await fetch('/updateEmployee', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(employee)
+                        });
+                        if (response.ok) {
+                            cells[1].innerText = employee.firstName + ' ' + employee.lastName;
+                            cells[2].innerText = employee.email;
+                            cells[3].innerText = employee.phone;
+                            cells[5].innerText = employee.aadhaarNo;
+                            alert('Employee details updated successfully');
+                        } else {
+                            alert('Error updating employee details');
+                        }
+                    } catch (error) {
+                        console.error('Error updating employee details:', error);
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTotals();
+            fetchEmployers();
+            fetchEmployees();
+        });
+
+        async function deleteEmployee(button) {
+            const row = button.parentElement.parentElement;
+            const uniqueNo = row.children[4].innerText;
+
+            try {
+                const response = await fetch(`/deleteEmployee?uniqueNo=${uniqueNo}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    row.remove();
+                    alert('Worker deleted successfully');
+                } else {
+                    alert('Error deleting Employee');
+                }
+            } catch (error) {
+                console.error('Error deleting Employee:', error);
+            }
+        }
+
+        async function deleteEmployer(button) {
+    const row = button.parentElement.parentElement;
+    const email = row.children[2].innerText;
+
+    try {
+        const response = await fetch(`/deleteEmployer?email=${email}`, {
+            method: 'DELETE'
+        });
+        if (response.ok) {
+            row.remove();
+            alert('Employer deleted successfully');
+        } else {
+            alert('Error deleting Employer');
+        }
+    } catch (error) {
+        console.error('Error deleting Employer:', error);
+    }
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="register.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="google" content="notranslate">
+  <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en', 
+              includedLanguages: 'en,ta,hi,bn,or,te', 
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+  <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"></div>
+  <div class="header">
+    <h1 onclick="location.href='/login'">Migrant Care</h1>
+    <hr>
+  </div>
+  <div class="wrapper">
+    <form id="register-form">
+      <h1>User Type</h1>
+      <div class="form-column">
+        <div class="input-box">
+          <label for="user-type">User Type</label>
+          <select id="user-type" name="userType" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="admin">Admin</option>
+            <option value="employee">Employee</option>
+            <option value="employer">Employer</option>
+          </select>
+          <i class='bx bx-user-pin'></i>
+        </div>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <div class="register-link">
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Migrant Care. All rights reserved.</p>
+    <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+</body>
+  <script src="register.js" defer></script>
+</html>

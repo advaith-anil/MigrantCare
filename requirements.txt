@@ -1,0 +1,11 @@
+Flask
+flask-cors
+openai-whisper
+deep-translator
+spacy
+torch
+
+# Notes:
+# - You must install a spaCy model used by the app: `python -m spacy download en_core_web_md`
+# - Whisper requires `ffmpeg` available on your PATH.
+# - For GPU support, install `torch` with the appropriate CUDA build from https://pytorch.org

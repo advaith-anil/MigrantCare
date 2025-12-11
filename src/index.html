@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="google" content="notranslate"> 
+    <script type="text/javascript">
+      localStorage.clear();
+      sessionStorage.clear();
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ta,hi,bn,or,te',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+  <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"></div>
+  <div class="alert" id="login-alert">
+    <p id="alert-message">msg</p>
+  </div>
+  <div class="header">
+    <h1 onclick="location.href='/login'">Migrant Care</h1>
+    <hr>
+  </div>
+  <div class="wrapper">
+    <form id="login-form" action="/login" method="POST">
+      <h1>Login</h1>
+      <div class="input-box">
+        <input type="email" name="email" placeholder="Email" autocomplete="on" required>
+        <i class='bx bxs-user'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+        <i class='bx bxs-lock-alt'></i>
+      </div>
+      <div class="input-box">
+        <select name="userType" required>
+          <option value="" disabled selected>Select User Type</option>
+          <option value="admin">Admin</option>
+          <option value="employee">Employee</option>
+          <option value="employer">Employer</option>
+        </select>
+        <i class='bx bx-user-pin'></i>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="register-link">
+        <p>Don't have an account? <a href="/register">Register</a></p>
+      </div>
+    </form>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Migrant Care. All rights reserved.</p>
+    <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+  <script src="login.js"></script>
+</body>
+</html>
